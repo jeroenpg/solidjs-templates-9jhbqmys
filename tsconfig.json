@@ -1,4 +1,5 @@
 {
+  "extends": "./base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "target": "ESNext",
@@ -12,7 +13,23 @@
     "strict": true,
     "noEmit": true,
     "types": ["vinxi/types/client", "vite/client", "@testing-library/jest-dom"],
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@saoto-ui/*": ["./src/components/park/*"],
+      "@saoto/*": ["./src/foundation/framework-saoto/*"],
+      "~/*": ["./src/*"],
+      "styled-system/*": ["./styled-system/*"],
+      "@/styled-system/*": ["./styled-system/*"],
+      "bson": ["./src/override-bson.ts"],
+      "realbson/*": ["node_modules/bson/*"]
+    },
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "vitest.config.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

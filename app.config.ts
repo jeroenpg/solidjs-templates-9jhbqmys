@@ -1,7 +1,18 @@
-import { defineConfig } from '@tanstack/solid-start/config';
+import { defineConfig } from '@tanstack/solid-start/config'
 
 export default defineConfig({
+	server: {
+		esbuild: {
+			options: {
+				supported: {
+					'top-level-await': true,
+				},
+			},
+		},
+	},
   tsr: {
-    appDirectory: 'src',
-  },
+    appDirectory: "src",
+    routeFileIgnorePattern: ".(spec|test).ts",
+  }
 });
+//
